@@ -90,8 +90,9 @@ var gameQuestions = [{
       timeup: function(){
         clearInterval(timer);
         game.unanswered++;
-        $("#twowrapper").html("Out of time!")
-        $("#twowrapper").append("<h3>The correct Answer was: "+gameQuestions[game.questionNumber].correctAnswer+"</h3>");
+        $("#twowrapper").html("<h2>Out of time!</h2>")
+        $("#twowrapper").append("<h3>The correct Answer was: "+gameQuestions[game.questionNumber].correctAnswer);
+        $("#twowrapper").append("<img src='" +gameQuestions[game.questionNumber].image +"'/>");
         if(game.questionNumber==gameQuestions.length-1){
           setTimeout(game.results, 3*1000);
         }
@@ -129,6 +130,7 @@ var gameQuestions = [{
         clearInterval(timer);
         game.correct++;
         $("#twowrapper").html("<h2>You got it right!</h2>");
+        $("#twowrapper").append("<img src='" +gameQuestions[game.questionNumber].image +"'/>");
         if(game.questionNumber==gameQuestions.length-1){
           setTimeout(game.results, 3*1000);
         }
@@ -144,6 +146,7 @@ var gameQuestions = [{
         game.incorrect++;
         $("#twowrapper").html("<h2>You got it wrong!</h2>");
         $("#twowrapper").append('<h3>The correct Answer was: '+gameQuestions[game.questionNumber].correctAnswer+'</h3>');
+        $("#twowrapper").append("<img src='" +gameQuestions[game.questionNumber].image +"'/>");
         if(game.questionNumber==gameQuestions.length-1){
           setTimeout(game.results, 3*1000);
         }
